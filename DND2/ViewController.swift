@@ -19,20 +19,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         datePicker.datePickerMode = .DateAndTime
-        
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-        //registering for sending user various kinds of notifications
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound|UIUserNotificationType.Alert |UIUserNotificationType.Badge, categories: nil)
-            // Override point for customization after application launch.
-            return true
-    }
+    
     
     @IBAction func alarmButtonTapped(sender: UIButton) {
         scheduleAlarmForDate(datePicker.date)
