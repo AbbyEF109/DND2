@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+//init(data data: NSData) throws
 
 class Alarm {
     var fireDate: NSDate
@@ -22,6 +23,7 @@ class Alarm {
         self.repeatInterval = repeatInterval
         self.soundName = soundName
         self.alertBody = alertBody
+        
         
         
     }

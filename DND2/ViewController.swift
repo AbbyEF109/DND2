@@ -6,15 +6,22 @@
 //  Copyright © 2016 AbbyEF109. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import AudioToolbox
+import AVFoundation
 //import RealmSwift
-//import AudioToolbox
+
 
 class ViewController: UIViewController {
+// Need to import AVAudioPlayer somehow
+    
     
     @IBOutlet var setAlarm: UIButton!
     @IBOutlet var datePicker: UIDatePicker!
-    
+    //var numberOfLoops: Int
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -51,10 +58,11 @@ class ViewController: UIViewController {
         alarm.fireDate = theDate
         alarm.timeZone = NSTimeZone.defaultTimeZone()
         alarm.repeatInterval = NSCalendarUnit(rawValue: 0)
-        alarm.soundName = "alarmsound.caf"
+        alarm.soundName = "1005"
         alarm.alertBody = "Time to wake up!"
+        //AVAudioPlayer.numberOfLoops  = 3
         app.scheduleLocalNotification(alarm)
-        print("setting alarm")
+        print("Alarm set!")
         
     }
     

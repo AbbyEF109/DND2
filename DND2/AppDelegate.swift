@@ -5,7 +5,7 @@
 //  Created by Abby on 7/14/16.
 //  Copyright © 2016 AbbyEF109. All rights reserved.
 //
-
+import Foundation
 import UIKit
 import CoreData
 
@@ -13,14 +13,14 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    //Asks for permission for notifications, activates notification type
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound, categories: nil))
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound , categories: nil))
         //(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert |UIUserNotificationType.Badge, categories: nil))
         return true
         
     }
-    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
