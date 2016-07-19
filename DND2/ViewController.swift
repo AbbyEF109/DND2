@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import AudioToolbox
 import AVFoundation
+
 //import RealmSwift
 
 
@@ -19,7 +20,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var setAlarm: UIButton!
     @IBOutlet var datePicker: UIDatePicker!
-    //var numberOfLoops: Int
+    //init(data 1005)
+    var numberOfLoops: Int?
 
 
     override func viewDidLoad() {
@@ -38,6 +40,8 @@ class ViewController: UIViewController {
     
     @IBAction func alarmButtonTapped(sender: UIButton) {
         scheduleAlarmForDate(datePicker.date)
+        soundAlarmForDate(datePicker.date)
+        
     }
     
     @IBAction func datePickerSelected(sender: UIDatePicker) {
@@ -45,6 +49,24 @@ class ViewController: UIViewController {
         
         
         
+        
+    }
+    
+    func soundAlarmForDate(theDate: NSDate) {
+        let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
+        let url = NSURL(fileURLWithPath: path)
+        do {
+            let soundApp = try AVAudioPlayer(contentsOfURL: url)
+            soundApp.play()
+            let testSoundApp = soundApp.play()
+            print(testSoundApp)
+            soundApp.numberOfLoops = 3
+            print("sounds play now yay")
+        }
+        
+        catch {
+            print("There was an error accessing the sound.")
+        }
         
     }
 
@@ -60,7 +82,7 @@ class ViewController: UIViewController {
         alarm.repeatInterval = NSCalendarUnit(rawValue: 0)
         alarm.soundName = "1005"
         alarm.alertBody = "Time to wake up!"
-        //AVAudioPlayer.numberOfLoops  = 3
+        
         app.scheduleLocalNotification(alarm)
         print("Alarm set!")
         
