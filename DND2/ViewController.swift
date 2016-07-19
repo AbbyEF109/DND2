@@ -46,14 +46,16 @@ class ViewController: UIViewController {
     
     @IBAction func datePickerSelected(sender: UIDatePicker) {
         //Code to save alarm
+        //reference to NSUserDefaults (instance of the class)
+       let defaults = NSUserDefaults.standardUserDefaults()
         
         
         
         
     }
-    
+    //Function to make the alarm make noise
     func soundAlarmForDate(theDate: NSDate) {
-        let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
+        let path = "/System/Library/Audio/UISounds/fanfare.caf"
         let url = NSURL(fileURLWithPath: path)
         do {
             let soundApp = try AVAudioPlayer(contentsOfURL: url)
@@ -69,6 +71,7 @@ class ViewController: UIViewController {
         }
         
     }
+    //Set the alarm based on the data given by user via date picker
 
     func scheduleAlarmForDate(theDate: NSDate) {
         let app: UIApplication = UIApplication.sharedApplication()
@@ -97,7 +100,7 @@ class ViewController: UIViewController {
     //AudioSessionSetProperty(kAudioSessionProperty_CurrentHardwareOutputVolume, sizeof(), value)
     
     
-    //Alarm tones to come later
+    //Alarm tones to come later?
     
     
 }
