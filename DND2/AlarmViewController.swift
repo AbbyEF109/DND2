@@ -14,12 +14,10 @@ import AVFoundation
 //import RealmSwift
 
 
-class ViewController: UIViewController {
+class AlarmViewController: UIViewController {
     
     @IBOutlet var setAlarm: UIButton!
     @IBOutlet var datePicker: UIDatePicker!
-    //init(data 1005)
-    
     var soundApp = AVAudioPlayer()
 
 
@@ -28,7 +26,7 @@ class ViewController: UIViewController {
         
         //self.soundAlarmForDate(datePicker.date)
         // Do any additional setup after loading the view, typically from a nib.
-        datePicker.datePickerMode = .DateAndTime
+        self.datePicker.datePickerMode = .DateAndTime
     }
     
     
@@ -40,8 +38,9 @@ class ViewController: UIViewController {
     
     
     @IBAction func alarmButtonTapped(sender: UIButton) {
-        self.scheduleAlarmForDate(datePicker.date)
-        self.soundAlarmForDate(datePicker.date)
+        self.scheduleNotificationForDate(datePicker.date)
+        self.setAlarmTapNoise()
+        self.alarmForDate(self.datePicker.date)
         
     }
     
@@ -58,17 +57,18 @@ class ViewController: UIViewController {
         } Also not working*/
     }
     
-    func soundAlarmForDate(theDate: NSDate) {
+    func setAlarmTapNoise(){
+        //theDate = datePicker.date
         let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
         //let path = NSBundle.mainBundle().pathForResource("slap", ofType: "mp3")
         let url = NSURL(fileURLWithPath: path)
         do {
             //let soundApp = try AVAudioPlayer(contentsOfURL: url)
-            soundApp = try AVAudioPlayer(contentsOfURL: url)
-            soundApp.play()
-            let testSoundApp = soundApp.play()
+            self.soundApp = try AVAudioPlayer(contentsOfURL: url)
+            self.soundApp.play()
+            let testSoundApp = self.soundApp.play()
             print(testSoundApp)
-            soundApp.numberOfLoops = 3
+            self.soundApp.numberOfLoops = 3
             print("sounds play now yay")
         }
             
@@ -78,51 +78,47 @@ class ViewController: UIViewController {
         
     }
     
-    //Function to make the alarm make noise
-    func ssoundAlarmForDate(theDate: NSDate) {
-        //theDate = NSDate: datePicker.date
-        //let path = "/System/Library/Audio/UISounds/alarm.caf"
-        //let path = "/System/Library/Audio/UISounds/New/Fanfare.caf"
-        //let path = "/System/Library/Audio/UISounds/ReceivedMessage.caf"
-        //let path = "/System/Library/Audio/UISounds/Calypso.caf"
+    func alarmForDate(theDate: NSDate) {
+        let date = NSDate()
+        if (theDate == date){
         let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
-        //let path = "/System/Library/Audio/UISounds/dtmf-pound.caf"
-        //let path = NSBundle.mainBundle().pathForResource("sunshine", ofType: "wav")
+        //let path = NSBundle.mainBundle().pathForResource("slap", ofType: "mp3")
         let url = NSURL(fileURLWithPath: path)
-        //print(path)
         do {
-            //AudioServicesPlaySystemSound (1003) /*
-            let soundApp = try AVAudioPlayer(contentsOfURL: url)
-            soundApp.play()
-            let testSoundApp = soundApp.play()
+            //let soundApp = try AVAudioPlayer(contentsOfURL: url)
+            self.soundApp = try AVAudioPlayer(contentsOfURL: url)
+            self.soundApp.play()
+            let testSoundApp = self.soundApp.play()
             print(testSoundApp)
-            soundApp.numberOfLoops = 3
+            self.soundApp.numberOfLoops = 3
             print("sounds play now yay")
         }
-        
+            
+            
         catch {
             print("There was an error accessing the sound.")
         }
-        
+        }
     }
+
     //Set the alarm based on the data given by user via date picker
 
-    func scheduleAlarmForDate(theDate: NSDate) {
+    func scheduleNotificationForDate(setDate: NSDate) {
         let app: UIApplication = UIApplication.sharedApplication()
         let oldNotifications: [UILocalNotification] = app.scheduledLocalNotifications!
         // Clear out the old notification before scheduling a new one.
         if oldNotifications.count > 0 { app.cancelAllLocalNotifications() }
         // Create a new notification.
-        let alarm = UILocalNotification()
-        alarm.fireDate = theDate
-        alarm.timeZone = NSTimeZone.defaultTimeZone()
-        alarm.repeatInterval = NSCalendarUnit(rawValue: 0)
-        alarm.soundName = "1005" //is this needed?
-        alarm.alertBody = "Time to wake up!"
+        let notification = UILocalNotification()
+        notification.fireDate = setDate
+        notification.timeZone = NSTimeZone.defaultTimeZone()
+        notification.repeatInterval = NSCalendarUnit(rawValue: 0)
+        //alarm.soundName = "1005" //is this needed?
+        notification.alertBody = "Time to wake up!"
         
-        app.scheduleLocalNotification(alarm)
-        print("Alarm set!")
-        
+        app.scheduleLocalNotification(notification)
+        print("Notification set!")
+        print(setDate)
     }
     
     

@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Alarm View Controller-->
         <scene sceneID="3rz-NI-uNE">
             <objects>
-                <viewController id="CJu-lb-6If" customClass="ViewController" customModule="DND2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CJu-lb-6If" customClass="AlarmViewController" customModule="DND2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="awX-0R-Ogf"/>
                         <viewControllerLayoutGuide type="bottom" id="dyf-Z1-u3W"/>
