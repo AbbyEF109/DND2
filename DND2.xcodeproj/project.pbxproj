@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2848631F1D3FD0F700C12A3F /* sunshine.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2848631E1D3FD0F700C12A3F /* sunshine.wav */; };
+		284863211D3FEB8400C12A3F /* slap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 284863201D3FEB8400C12A3F /* slap.mp3 */; };
 		28661B6D1D381A0A001D4661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28661B6C1D381A0A001D4661 /* AppDelegate.swift */; };
 		28661B6F1D381A0A001D4661 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28661B6E1D381A0A001D4661 /* ViewController.swift */; };
 		28661B721D381A0A001D4661 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28661B701D381A0A001D4661 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2848631E1D3FD0F700C12A3F /* sunshine.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sunshine.wav; sourceTree = "<group>"; };
+		284863201D3FEB8400C12A3F /* slap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = slap.mp3; sourceTree = "<group>"; };
 		28661B691D381A09001D4661 /* DND2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DND2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28661B6C1D381A0A001D4661 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28661B6E1D381A0A001D4661 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				28661B7B1D381A0A001D4661 /* Info.plist */,
 				28661B731D381A0A001D4661 /* DND2.xcdatamodeld */,
 				28661B9D1D381A27001D4661 /* Model.swift */,
+				2848631E1D3FD0F700C12A3F /* sunshine.wav */,
+				284863201D3FEB8400C12A3F /* slap.mp3 */,
 			);
 			path = DND2;
 			sourceTree = "<group>";
@@ -241,8 +247,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				28661B7A1D381A0A001D4661 /* LaunchScreen.storyboard in Resources */,
+				284863211D3FEB8400C12A3F /* slap.mp3 in Resources */,
 				28661B771D381A0A001D4661 /* Assets.xcassets in Resources */,
 				28661B721D381A0A001D4661 /* Main.storyboard in Resources */,
+				2848631F1D3FD0F700C12A3F /* sunshine.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +505,7 @@
 				28661B961D381A0A001D4661 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28661B971D381A0A001D4661 /* Build configuration list for PBXNativeTarget "DND2Tests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +514,7 @@
 				28661B991D381A0A001D4661 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28661B9A1D381A0A001D4661 /* Build configuration list for PBXNativeTarget "DND2UITests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +523,7 @@
 				28661B9C1D381A0A001D4661 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
