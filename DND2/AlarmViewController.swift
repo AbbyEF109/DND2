@@ -59,8 +59,8 @@ class AlarmViewController: UIViewController {
     
     func setAlarmTapNoise(){
         //theDate = datePicker.date
-        let path = NSBundle.mainBundle().pathForResource("bell", ofType: "mp3")
-        let url = NSURL(fileURLWithPath: path!)
+        let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
+        let url = NSURL(fileURLWithPath: path)
         do {
             //let soundApp = try AVAudioPlayer(contentsOfURL: url)
             self.soundApp = try AVAudioPlayer(contentsOfURL: url)
