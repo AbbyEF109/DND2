@@ -47,7 +47,7 @@ class AlarmViewController: UIViewController {
     @IBAction func datePickerSelected(sender: UIDatePicker) {
         //Code to save alarm
         //reference to NSUserDefaults (instance of the class)
-       let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = NSUserDefaults.standardUserDefaults()
         //func set(_: datePicker.date: AnyObject?, forKey datePickerDate)
         //Not working
         //default.setObject(datePicker.date, forKey date)
@@ -55,6 +55,7 @@ class AlarmViewController: UIViewController {
         /*func set(_: anyObject? forKey: String){
             defaults.setObject(datePicker.date, forKey: datePickerDate)
         } Also not working*/
+        
     }
     
     func setAlarmTapNoise(){
@@ -112,7 +113,7 @@ class AlarmViewController: UIViewController {
         notification.timeZone = NSTimeZone.defaultTimeZone()
         notification.repeatInterval = NSCalendarUnit(rawValue: 0)
         //alarm.soundName = "1005" //is this needed?
-        notification.alertBody = "Time to wake up!"
+        notification.alertBody = "Time is up!"
         
         app.scheduleLocalNotification(notification)
         print("Notification set!")
