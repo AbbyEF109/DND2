@@ -19,6 +19,7 @@ class AlarmViewController: UIViewController {
     @IBOutlet var setAlarm: UIButton!
     @IBOutlet var datePicker: UIDatePicker!
     var soundApp = AVAudioPlayer()
+    var now = NSDate()
 
 
     override func viewDidLoad() {
@@ -47,7 +48,11 @@ class AlarmViewController: UIViewController {
     @IBAction func datePickerSelected(sender: UIDatePicker) {
         //Code to save alarm
         //reference to NSUserDefaults (instance of the class)
+        //WIP
         let defaults = NSUserDefaults.standardUserDefaults()
+        let DatePickerDate: NSDate = datePicker.date
+        defaults.setObject(NSDate(), forKey: "DatePickerDate")
+        //func setObject(_: datePicker.date: AnyObject?, forKey datePickerDate: String)
         //func set(_: datePicker.date: AnyObject?, forKey datePickerDate)
         //Not working
         //default.setObject(datePicker.date, forKey date)
@@ -59,7 +64,7 @@ class AlarmViewController: UIViewController {
     }
     
     func setAlarmTapNoise(){
-        //theDate = datePicker.date
+        //pickedDate = datePicker.date
         let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
         let url = NSURL(fileURLWithPath: path)
         do {
@@ -78,9 +83,8 @@ class AlarmViewController: UIViewController {
         
     }
     
-    func alarmForDate(theDate: NSDate) {
-        let date = NSDate()
-        if (theDate == date){
+    func alarmForDate(pickedDate: NSDate) {
+        if (pickedDate == now){
             let path = NSBundle.mainBundle().pathForResource("bell", ofType: "mp3")
             let url = NSURL(fileURLWithPath: path!)
         do {
