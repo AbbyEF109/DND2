@@ -59,16 +59,15 @@ class AlarmViewController: UIViewController {
     
     func setAlarmTapNoise(){
         //theDate = datePicker.date
-        let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
-        //let path = NSBundle.mainBundle().pathForResource("slap", ofType: "mp3")
-        let url = NSURL(fileURLWithPath: path)
+        let path = NSBundle.mainBundle().pathForResource("bell", ofType: "mp3")
+        let url = NSURL(fileURLWithPath: path!)
         do {
             //let soundApp = try AVAudioPlayer(contentsOfURL: url)
             self.soundApp = try AVAudioPlayer(contentsOfURL: url)
             self.soundApp.play()
             let testSoundApp = self.soundApp.play()
             print(testSoundApp)
-            self.soundApp.numberOfLoops = 3
+            //self.soundApp.numberOfLoops = 3
             print("sounds play now yay")
         }
             
@@ -81,9 +80,8 @@ class AlarmViewController: UIViewController {
     func alarmForDate(theDate: NSDate) {
         let date = NSDate()
         if (theDate == date){
-        let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
-        //let path = NSBundle.mainBundle().pathForResource("slap", ofType: "mp3")
-        let url = NSURL(fileURLWithPath: path)
+            let path = NSBundle.mainBundle().pathForResource("bell", ofType: "mp3")
+            let url = NSURL(fileURLWithPath: path!)
         do {
             //let soundApp = try AVAudioPlayer(contentsOfURL: url)
             self.soundApp = try AVAudioPlayer(contentsOfURL: url)
