@@ -75,7 +75,7 @@ class AlarmViewController: UIViewController {
             print(testSoundApp)
             //self.soundApp.numberOfLoops = 3
             print("sounds play now yay")
-            let alertController = UIAlertController(title: "Hello, TestUser!", message:"There will be a notification like this one to turn off the alarm in a later version!", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: "Hello, TestUser!", message:"There will be a notification like this one to turn off the alarm in a later version! For now, just go to the home screen and wait. Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
             let cancel = UIAlertAction(title: "Cool!", style: UIAlertActionStyle.Cancel, handler: nil)
             alertController.addAction(cancel)
             self.presentViewController(alertController, animated: true, completion: nil)
@@ -124,7 +124,7 @@ class AlarmViewController: UIViewController {
         notification.fireDate = setDate
         notification.timeZone = NSTimeZone.defaultTimeZone()
         notification.repeatInterval = NSCalendarUnit(rawValue: 0)
-        notification.soundName = "bell.mp3" 
+        notification.soundName = "bell.mp3" //works but is stopgap
         notification.alertBody = "Time is up!"
         app.scheduleLocalNotification(notification)
         print("Notification set!")
