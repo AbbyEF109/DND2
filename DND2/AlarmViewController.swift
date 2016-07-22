@@ -75,6 +75,10 @@ class AlarmViewController: UIViewController {
             print(testSoundApp)
             //self.soundApp.numberOfLoops = 3
             print("sounds play now yay")
+            let alertController = UIAlertController(title: "Hello, TestUser!", message:"There will be a notification like this one to turn off the alarm in a later version!", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancel = UIAlertAction(title: "Cool!", style: UIAlertActionStyle.Cancel, handler: nil)
+            alertController.addAction(cancel)
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
             
         catch {
@@ -95,6 +99,10 @@ class AlarmViewController: UIViewController {
             print(testSoundApp)
             self.soundApp.numberOfLoops = 3
             print("sounds play now yay")
+            let alertController = UIAlertController(title: "Are you up now?", message:"Do you want to turn off the ringtone?", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancel = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Cancel, handler: nil)
+            alertController.addAction(cancel)
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
             
             
@@ -116,9 +124,8 @@ class AlarmViewController: UIViewController {
         notification.fireDate = setDate
         notification.timeZone = NSTimeZone.defaultTimeZone()
         notification.repeatInterval = NSCalendarUnit(rawValue: 0)
-        //alarm.soundName = "1005" //is this needed?
+        notification.soundName = "bell.mp3" 
         notification.alertBody = "Time is up!"
-        
         app.scheduleLocalNotification(notification)
         print("Notification set!")
         print(setDate)
