@@ -50,11 +50,23 @@ class AlarmViewController: UIViewController {
         //reference to NSUserDefaults (instance of the class)
         //WIP
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(NSDate(), forKey: "now")
+        
+        /*
+        let dict = ["Name": "iOS-Blog", "tagline": "Awesome Tutorials", "rating": "10/10"]
+        defaults.setObject(dict, forKey: "SavedDict")
+        let savedDict = defaults.objectForKey("SavedDict") as? [String: String] ?? [String: String]()
+        print(savedDict)
+        well at least the example works... */
+        /*let aDict: Dictionary = ["fireDate": NSDate, "timeZone": NSDate, "repeatInterval": Int, "soundName": String, "alertBody": String]
+        defaults.setObject(aDict, forKey: "alarmDict")
+        let dict = defaults.objectForKey("alarmDict") as? [String: String] ?? [String: String]()
+        print(dict)*/
+        //ARGH
+        /*defaults.setObject(NSDate(), forKey: "now")
         let getNow = defaults.objectForKey("now") as? [String] ?? [String]()
         print("This is from NSUserdefaults")
         print(getNow)
-        print("Ends NSUserDefaults")
+        print("Ends NSUserDefaults")*/
         //Let's try this again...
         //let DatePickerDate: NSDate = datePicker.date
         //defaults.setObject(NSDate(), forKey: "DatePickerDate")

@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
      func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        let alarmInForeground = UIAlertController(title: "Alarm", message: nil, preferredStyle: .Alert)
+        let alarmInForeground = UIAlertController(title: "Time is up!", message: nil, preferredStyle: .Alert)
         let cancel = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil)
         alarmInForeground.addAction(cancel)
         window?.rootViewController!.presentViewController(alarmInForeground, animated: true, completion: nil)
