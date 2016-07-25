@@ -50,8 +50,14 @@ class AlarmViewController: UIViewController {
         //reference to NSUserDefaults (instance of the class)
         //WIP
         let defaults = NSUserDefaults.standardUserDefaults()
-        let DatePickerDate: NSDate = datePicker.date
-        defaults.setObject(NSDate(), forKey: "DatePickerDate")
+        defaults.setObject(NSDate(), forKey: "now")
+        let getNow = defaults.objectForKey("now") as? [String] ?? [String]()
+        print("This is from NSUserdefaults")
+        print(getNow)
+        print("Ends NSUserDefaults")
+        //Let's try this again...
+        //let DatePickerDate: NSDate = datePicker.date
+        //defaults.setObject(NSDate(), forKey: "DatePickerDate")
         //func setObject(_: datePicker.date: AnyObject?, forKey datePickerDate: String)
         //func set(_: datePicker.date: AnyObject?, forKey datePickerDate)
         //Not working

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 //init(data data: NSData) throws
 
-class Alarm {
+/*class Alarm {
     var fireDate: NSDate
     var timeZone: NSDate
     var repeatInterval: Int
@@ -27,4 +27,6 @@ class Alarm {
         
         
     }
-}
+} */
+
+
