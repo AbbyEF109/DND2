@@ -214,6 +214,11 @@
 					28661B681D381A09001D4661 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 6A5M9B69YM;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					28661B7F1D381A0A001D4661 = {
 						CreatedOnToolsVersion = 7.3.1;

@@ -19,6 +19,8 @@ class AlarmViewController: UIViewController {
     @IBOutlet var setAlarm: UIButton!
     @IBOutlet var datePicker: UIDatePicker!
     var soundApp = AVAudioPlayer()
+    let notification = UILocalNotification()
+    
 
 
     override func viewDidLoad() {
@@ -27,6 +29,7 @@ class AlarmViewController: UIViewController {
         //self.soundAlarmForDate(datePicker.date)
         // Do any additional setup after loading the view, typically from a nib.
         self.datePicker.datePickerMode = .DateAndTime
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.fireAlarm), name: "AlarmNotification", object: nil)
     }
     
     
@@ -35,16 +38,31 @@ class AlarmViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    /*func delay(bySeconds seconds: Double, dispatchLevel: DispatchLevel = .Main, closure: () -> Void) {
+        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
+        dispatch_after(dispatchTime, dispatchLevel.dispatchQueue, closure)
+    }
     
+    enum DispatchLevel {
+        case Main, UserInteractive, UserInitiated, Utility, Background
+        var dispatchQueue: OS_dispatch_queue {
+            switch self {
+            case .Main:             return dispatch_get_main_queue()
+            case .UserInteractive:  return dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)
+            case .UserInitiated:    return dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)
+            case .Utility:          return dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
+            case .Background:       return dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0) }
+        }
+    }*/
     
     @IBAction func alarmButtonTapped(sender: UIButton) {
         self.scheduleNotificationForDate(datePicker.date)
         self.setAlarmTapNoise()
-        self.alarmForDate(self.datePicker.date)
+        //self.alarmForDate(datePicker.date)
         
     }
     
-    @IBAction func datePickerSelected(sender: UIDatePicker) {
+    @IBAction func datePickerSelected(sender: UIDatePicker) { //Not needed?
         //Code to save alarm
         //reference to NSUserDefaults (instance of the class)
         //WIP
@@ -100,7 +118,6 @@ class AlarmViewController: UIViewController {
     }
     
     func setAlarmTapNoise(){
-        //pickedDate = datePicker.date
         let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
         let url = NSURL(fileURLWithPath: path)
         do {
@@ -123,64 +140,144 @@ class AlarmViewController: UIViewController {
         
     }
     
-    func alarmForDate(pickedDate: NSDate) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        print("This is from NSUserdefaults")
-        defaults.setObject(NSDate(), forKey: "Date")
-        let pickedDate = defaults.objectForKey("Date") as? NSDate ?? NSDate()
-        print(pickedDate)
-        print("Ends NSUserDefaults")
-        let now = NSDate()
+   // func alarmForDate(pickedDate: NSDate) {
+        //let defaults = NSUserDefaults.standardUserDefaults()
+        //let pickedDate = datePicker.date
+        //print("This is the picked date:")
+        //print(pickedDate)
+        //print("This is the notification date:")
+        //let setDate = notification.fireDate
+        //print(setDate)
+        //print("This is pickedDate")
+        //print(pickedDate)
+        //print("This is from NSUserdefaults")
+        //defaults.setObject(pickedDate, forKey: "savedPickedDate")
+        //let sPD = defaults.objectForKey("savedPickedDate") as? NSDate ?? NSDate()
+        //print(sPD)
+        //print("Ends NSUserDefaults")
         
-        if (pickedDate == now){
-            let path = NSBundle.mainBundle().pathForResource("tickle", ofType: "mp3")
-            let url = NSURL(fileURLWithPath: path!)
+        //let now = NSDate()
+        //print("This is now")
+        //print(now)
+        
+        /*while(sPD != now){
+            sleep(1)
+        }*/
+        
+        /*while(sPD != now){
+            var timer = NSTimer()
+            let delay = 0.1
+            timer = NSTimer.scheduledTimerWithTimeInterval(delay, target: self, selector: #selector(delayedAction), userInfo: nil, repeats: false)
+        }*/
+        
+        /*while(sPD != now){
             
-        do {
+        }*/
+        
+        //print("PickedDate works!")
+        
+        /*while(sPD != now){
+         sleep(1)
+         }*/
+        
+        /*while (sPD != now){
+         delay(bySeconds: 1, dispatchLevel: .Background) {
+         while (sPD = now){
+         
+         }
+         }
+         }*/
+        /*while (sPD != now){
+         //var delayTimer = NSTimer()
+         let myTimer : NSTimer = NSTimer.scheduledTimerWithTimeInterval(, target: self, selector: Selector("alarmForDate"), userInfo: nil, repeats: false)
+         
+         }*/
+        
+//        let defaults = NSUserDefaults.standardUserDefaults()
+//        let pickedDate = datePicker.date
+//        defaults.setObject(pickedDate, forKey: "savedPickedDate")
+//        let sPD = defaults.objectForKey("savedPickedDate") as? NSDate ?? NSDate()
+//        let now = NSDate()
+        
+        
+//        
+//        let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
+//        //let path = NSBundle.mainBundle().pathForResource("tickle", ofType: "mp3")
+//        let url = NSURL(fileURLWithPath: path)
+//        
+//        do {
             //let soundApp = try AVAudioPlayer(contentsOfURL: url)
-            self.soundApp = try AVAudioPlayer(contentsOfURL: url)
-            self.soundApp.play()
-            let testSoundApp = self.soundApp.play()
-            print(testSoundApp)
-            self.soundApp.numberOfLoops = 3
-            print("sounds play now yay")
-            let alertController = UIAlertController(title: "Are you up now?", message:"Do you want to turn off the ringtone?", preferredStyle: UIAlertControllerStyle.Alert)
-            let cancel = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Cancel, handler: nil)
-            alertController.addAction(cancel)
-            self.presentViewController(alertController, animated: true, completion: nil)
-        }
-            
-            
-        catch {
-            print("There was an error accessing the sound.")
-        }
-        }
-    }
+//            self.soundApp = try AVAudioPlayer(contentsOfURL: url)
+//            self.soundApp.play()
+//            let testSoundApp = self.soundApp.play()
+//            print(testSoundApp)
+//            self.soundApp.numberOfLoops = 3
+//            print("sounds play now yay")
+//            let alertController = UIAlertController(title: "Are you up now?", message:"Do you want to turn off the ringtone?", preferredStyle: UIAlertControllerStyle.Alert)
+//            let cancel = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Cancel, handler: nil)
+//            alertController.addAction(cancel)
+//            self.presentViewController(alertController, animated: true, completion: nil)
+//        }
+//            
+//            
+//        catch {
+//            print("There was an error accessing the sound.")
+//        }
+//    }
 
     //Set the alarm based on the data given by user via date picker
 
     func scheduleNotificationForDate(setDate: NSDate) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let pickedDate = datePicker.date
+        defaults.setObject(pickedDate, forKey: "savedPickedDate")
+        let sPD = defaults.objectForKey("savedPickedDate") as? NSDate ?? NSDate()
+        let now = NSDate()
         let app: UIApplication = UIApplication.sharedApplication()
         let oldNotifications: [UILocalNotification] = app.scheduledLocalNotifications!
         // Clear out the old notification before scheduling a new one.
         if oldNotifications.count > 0 { app.cancelAllLocalNotifications() }
         // Create a new notification.
-        let notification = UILocalNotification()
-        notification.fireDate = setDate
+        //let notification = UILocalNotification()
+        print("This is the sPD")
+        print(sPD)
+        notification.fireDate = NSDate(timeInterval: 1, sinceDate: setDate)
+        print("Tis is the fireDate")
+        print(notification.fireDate)
         notification.timeZone = NSTimeZone.defaultTimeZone()
         notification.repeatInterval = NSCalendarUnit(rawValue: 0)
-        notification.soundName = "bell.mp3" //works but is stopgap
+        //notification.soundName = "tickle.mp3" //works but is stopgap
         notification.alertBody = "Time is up!"
         app.scheduleLocalNotification(notification)
         print("Notification set!")
-        print(setDate)
+    }
+    
+    func fireAlarm() {
+        print("fireAlarm")
+        //let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
+        let path = NSBundle.mainBundle().pathForResource("tickle", ofType: "mp3")
+        let url = NSURL(fileURLWithPath: path!)
+        do {
+            self.soundApp = try AVAudioPlayer(contentsOfURL: url)
+            self.soundApp.play()
+            let testSoundApp = self.soundApp.play()
+            print(testSoundApp)
+            self.soundApp.numberOfLoops = 1
+            print("sounds play now yay 2")
+            let alertController = UIAlertController(title: "Are you up now?", message:"Do you want to turn off the ringtone?", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancel = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Cancel, handler: nil)
+            alertController.addAction(cancel)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        catch {
+            print("There was an error accessing the sound.")
+        }
     }
     
     
     
-    
 
-    // Mute/unmute
+//     Mute/unmute
     //var value: Float = 0.0
     //AudioSessionSetProperty(kAudioSessionProperty_CurrentHardwareOutputVolume, sizeof(), value)
     
@@ -189,4 +286,3 @@ class AlarmViewController: UIViewController {
     
     
 }
-

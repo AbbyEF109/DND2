@@ -16,9 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //Asks for permission for notifications, activates notification type
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound, categories: nil))
-        //let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge , .Sound], categories: nil)
-        //UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+//        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound, categories: nil))
+        
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge , .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
         //(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert |UIUserNotificationType.Badge, categories: nil))
         return true
@@ -26,12 +27,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
      func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+
+        print("received notification")
         let alarmInForeground = UIAlertController(title: "Time is up!", message: nil, preferredStyle: .Alert)
         let cancel = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil)
         alarmInForeground.addAction(cancel)
         window?.rootViewController!.presentViewController(alarmInForeground, animated: true, completion: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("AlarmNotification", object: nil)
         
     }
+    
+    /*func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        print("REcieved RMOTE")
+    }*/
     
     
     
