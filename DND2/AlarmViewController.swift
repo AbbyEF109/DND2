@@ -18,6 +18,8 @@ class AlarmViewController: UIViewController {
     
     @IBOutlet var setAlarm: UIButton!
     @IBOutlet var datePicker: UIDatePicker!
+    
+    
     var soundApp = AVAudioPlayer()
     let notification = UILocalNotification()
     
@@ -37,6 +39,13 @@ class AlarmViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func openSettingsButtonPressed(sender: AnyObject) {
+//        let URL: NSURL = NSURL(string: UIApplicationOpenSettingsURLString)!
+        let URL: NSURL = NSURL(string: "prefs:root=General")!
+        UIApplication.sharedApplication().openURL(URL)
+    }
+    
     
     /*func delay(bySeconds seconds: Double, dispatchLevel: DispatchLevel = .Main, closure: () -> Void) {
         let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))

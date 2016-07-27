@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gl0-RF-0hl">
-                                <rect key="frame" x="140" y="0.0" width="320" height="216"/>
+                                <rect key="frame" x="140" y="34" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="490287371.16619402">
                                     <!--2016-07-15 14:56:11 +0000-->
                                 </date>
@@ -27,19 +27,28 @@
                                 </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwI-uk-35m">
-                                <rect key="frame" x="267" y="234" width="67" height="30"/>
+                                <rect key="frame" x="140" y="252" width="67" height="30"/>
                                 <state key="normal" title="Set Alarm"/>
                                 <connections>
                                     <action selector="alarmButtonTapped:" destination="CJu-lb-6If" eventType="touchUpInside" id="DYX-Wc-uXd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiz-3B-KrQ">
+                                <rect key="frame" x="362" y="252" width="98" height="30"/>
+                                <state key="normal" title="Open Settings"/>
+                                <connections>
+                                    <action selector="openSettingsButtonPressed:" destination="CJu-lb-6If" eventType="touchUpInside" id="b83-tz-xEO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gl0-RF-0hl" firstAttribute="centerX" secondItem="DlD-jp-RED" secondAttribute="centerX" id="1Fn-dP-DgY"/>
-                            <constraint firstItem="wwI-uk-35m" firstAttribute="top" secondItem="gl0-RF-0hl" secondAttribute="bottom" constant="18" id="SiG-Kb-vUs"/>
-                            <constraint firstItem="dyf-Z1-u3W" firstAttribute="top" secondItem="wwI-uk-35m" secondAttribute="bottom" constant="336" id="aH8-KA-HaT"/>
-                            <constraint firstItem="wwI-uk-35m" firstAttribute="centerX" secondItem="gl0-RF-0hl" secondAttribute="centerX" id="gby-gJ-9yn"/>
+                            <constraint firstItem="gl0-RF-0hl" firstAttribute="trailing" secondItem="jiz-3B-KrQ" secondAttribute="trailing" id="21D-vs-qkv"/>
+                            <constraint firstItem="wwI-uk-35m" firstAttribute="baseline" secondItem="jiz-3B-KrQ" secondAttribute="baseline" id="3ph-dT-TNW"/>
+                            <constraint firstItem="gl0-RF-0hl" firstAttribute="leading" secondItem="wwI-uk-35m" secondAttribute="leading" id="3pl-cY-fyS"/>
+                            <constraint firstItem="jiz-3B-KrQ" firstAttribute="top" secondItem="gl0-RF-0hl" secondAttribute="bottom" constant="2" id="bM4-bo-Gtm"/>
+                            <constraint firstItem="gl0-RF-0hl" firstAttribute="top" secondItem="awX-0R-Ogf" secondAttribute="bottom" constant="14" id="fAG-gq-4Mm"/>
+                            <constraint firstItem="gl0-RF-0hl" firstAttribute="centerX" secondItem="DlD-jp-RED" secondAttribute="centerX" id="wVI-k0-d7j"/>
                         </constraints>
                     </view>
                     <connections>

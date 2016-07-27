@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2848631F1D3FD0F700C12A3F /* sunshine.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2848631E1D3FD0F700C12A3F /* sunshine.wav */; };
 		284863211D3FEB8400C12A3F /* slap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 284863201D3FEB8400C12A3F /* slap.mp3 */; };
+		285EE8961D49453100030731 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285EE8951D49453100030731 /* MediaPlayer.framework */; };
 		28661B6D1D381A0A001D4661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28661B6C1D381A0A001D4661 /* AppDelegate.swift */; };
 		28661B6F1D381A0A001D4661 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28661B6E1D381A0A001D4661 /* AlarmViewController.swift */; };
 		28661B721D381A0A001D4661 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28661B701D381A0A001D4661 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		2848631E1D3FD0F700C12A3F /* sunshine.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sunshine.wav; sourceTree = "<group>"; };
 		284863201D3FEB8400C12A3F /* slap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = slap.mp3; sourceTree = "<group>"; };
+		285EE8951D49453100030731 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		28661B691D381A09001D4661 /* DND2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DND2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28661B6C1D381A0A001D4661 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28661B6E1D381A0A001D4661 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285EE8961D49453100030731 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +94,7 @@
 		28661B601D381A09001D4661 = {
 			isa = PBXGroup;
 			children = (
+				285EE8951D49453100030731 /* MediaPlayer.framework */,
 				28661B6B1D381A09001D4661 /* DND2 */,
 				28661B831D381A0A001D4661 /* DND2Tests */,
 				28661B8E1D381A0A001D4661 /* DND2UITests */,
@@ -436,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DND2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wordpress.abbyapps.DND2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DND2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wordpress.abbyapps.DND2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
