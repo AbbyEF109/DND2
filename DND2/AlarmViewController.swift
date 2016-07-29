@@ -32,6 +32,11 @@ class AlarmViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.datePicker.datePickerMode = .DateAndTime
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.fireAlarm), name: "AlarmNotification", object: nil)
+        /*let alertController = UIAlertController(title: "Welcome!", message:"Set a time and hit the Set Alarm button..", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancel = UIAlertAction(title: "Got it", style: UIAlertActionStyle.Cancel, handler: nil)
+        alertController.addAction(cancel)
+        self.presentViewController(alertController, animated: true, completion: nil)*/
+
     }
     
     
@@ -44,6 +49,16 @@ class AlarmViewController: UIViewController {
 //        let URL: NSURL = NSURL(string: UIApplicationOpenSettingsURLString)!
         let URL: NSURL = NSURL(string: "prefs:root=General")!
         UIApplication.sharedApplication().openURL(URL)
+        
+        
+        /*let alertController = UIAlertController(title: "Almost done!", message:"Set your phone to Airplane Mode and lock it. The app will do the rest! Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancel = UIAlertAction(title: "Got it", style: UIAlertActionStyle.Cancel, handler: nil)
+        alertController.addAction(cancel)
+        self.presentViewController(alertController, animated: true, completion: nil)
+        let URL: NSURL = NSURL(string: "prefs:root=General")!
+        UIApplication.sharedApplication().openURL(URL)
+        let alertController = UIAlertController(title: "Almost Done!", message:"Turn on Airplane Mode. Only the notifications from this app will go off. Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
+        self.presentViewController(alertController, animated: true, completion: nil)*/
     }
     
     
@@ -137,8 +152,8 @@ class AlarmViewController: UIViewController {
             print(testSoundApp)
             //self.soundApp.numberOfLoops = 3
             print("sounds play now yay")
-            let alertController = UIAlertController(title: "Alarm set!", message:"Lock your phone or go to the home screen and the alarm will do the rest. Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
-            let cancel = UIAlertAction(title: "Cool!", style: UIAlertActionStyle.Cancel, handler: nil)
+            let alertController = UIAlertController(title: "Alarm set!", message:"Please press the Open Settings button. It will bring you to your settings. Set your phone on Airplane Mode and the app will do the rest! Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancel = UIAlertAction(title: "Got it", style: UIAlertActionStyle.Cancel, handler: nil)
             alertController.addAction(cancel)
             self.presentViewController(alertController, animated: true, completion: nil)
         }
@@ -241,7 +256,7 @@ class AlarmViewController: UIViewController {
         let pickedDate = datePicker.date
         defaults.setObject(pickedDate, forKey: "savedPickedDate")
         let sPD = defaults.objectForKey("savedPickedDate") as? NSDate ?? NSDate()
-        let now = NSDate()
+        //let now = NSDate()
         let app: UIApplication = UIApplication.sharedApplication()
         let oldNotifications: [UILocalNotification] = app.scheduledLocalNotifications!
         // Clear out the old notification before scheduling a new one.
@@ -255,7 +270,7 @@ class AlarmViewController: UIViewController {
         print(notification.fireDate)
         notification.timeZone = NSTimeZone.defaultTimeZone()
         notification.repeatInterval = NSCalendarUnit(rawValue: 0)
-        //notification.soundName = "tickle.mp3" //works but is stopgap
+        notification.soundName = "bell.mp3" //works but is stopgap
         notification.alertBody = "Time is up!"
         app.scheduleLocalNotification(notification)
         print("Notification set!")
@@ -264,7 +279,7 @@ class AlarmViewController: UIViewController {
     func fireAlarm() {
         print("fireAlarm")
         //let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
-        let path = NSBundle.mainBundle().pathForResource("tickle", ofType: "mp3")
+        let path = NSBundle.mainBundle().pathForResource("bell", ofType: "mp3")
         let url = NSURL(fileURLWithPath: path!)
         do {
             self.soundApp = try AVAudioPlayer(contentsOfURL: url)
@@ -273,10 +288,14 @@ class AlarmViewController: UIViewController {
             print(testSoundApp)
             self.soundApp.numberOfLoops = 1
             print("sounds play now yay 2")
-            let alertController = UIAlertController(title: "Are you up now?", message:"Do you want to turn off the ringtone?", preferredStyle: UIAlertControllerStyle.Alert)
-            let cancel = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Cancel, handler: nil)
-            alertController.addAction(cancel)
-            self.presentViewController(alertController, animated: true, completion: nil)
+//            let alertController2 = UIMutableUserNotification.Action()(title: "Are you up now?", message:"Do you want to turn off the ringtone and return to your settings to turn off Airplane Mode?", preferredStyle: UIAlertControllerStyle.Alert)
+//            let cancel = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Cancel, handler: nil)
+//            alertController2.addAction(cancel)
+//            self.presentViewController(alertController2, animated: true, completion: nil)
+            
+            //self.soundApp.stop()
+            let URL: NSURL = NSURL(string: "prefs:root=General")!
+            UIApplication.sharedApplication().openURL(URL)
         }
         catch {
             print("There was an error accessing the sound.")
