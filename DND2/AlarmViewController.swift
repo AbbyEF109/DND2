@@ -154,7 +154,7 @@ class AlarmViewController: UIViewController {
             print(testSoundApp)
             //self.soundApp.numberOfLoops = 3
             print("sounds play now yay")
-            let alertController = UIAlertController(title: "Alarm set!", message:"Please press the Open Settings button. It will bring you to your settings. Set your phone on Airplane Mode and the app will do the rest! Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: "Alarm set!", message:"Tap the Edit Settings button. It will bring you to your settings. Set your phone on Airplane Mode and the app will do the rest! Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
             let cancel = UIAlertAction(title: "Got it", style: UIAlertActionStyle.Cancel, handler: nil)
             alertController.addAction(cancel)
             self.presentViewController(alertController, animated: true, completion: nil)
