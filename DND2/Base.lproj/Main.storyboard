@@ -26,29 +26,38 @@
                                     <action selector="datePickerSelected:" destination="CJu-lb-6If" eventType="valueChanged" id="WvN-zQ-FJo"/>
                                 </connections>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiz-3B-KrQ">
-                                <rect key="frame" x="251" y="285" width="98" height="30"/>
-                                <state key="normal" title="Open Settings"/>
-                                <connections>
-                                    <action selector="openSettingsButtonPressed:" destination="CJu-lb-6If" eventType="touchUpInside" id="b83-tz-xEO"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwI-uk-35m">
-                                <rect key="frame" x="267" y="247" width="67" height="30"/>
+                                <rect key="frame" x="267" y="285" width="67" height="30"/>
                                 <state key="normal" title="Set Alarm"/>
                                 <connections>
                                     <action selector="alarmButtonTapped:" destination="CJu-lb-6If" eventType="touchUpInside" id="DYX-Wc-uXd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1YY-Ec-rZO">
+                                <rect key="frame" x="262" y="390" width="76" height="30"/>
+                                <state key="normal" title="Stop Alarm"/>
+                                <connections>
+                                    <action selector="stopAlarm:" destination="CJu-lb-6If" eventType="touchUpInside" id="RvS-Pc-FyJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g63-iT-85p">
+                                <rect key="frame" x="257" y="337" width="87" height="30"/>
+                                <state key="normal" title="Edit Settings"/>
+                                <connections>
+                                    <action selector="openSettingsButtonPressed:" destination="CJu-lb-6If" eventType="touchUpInside" id="Dgq-a4-AkY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gl0-RF-0hl" firstAttribute="top" secondItem="awX-0R-Ogf" secondAttribute="bottom" constant="14" id="4eR-jJ-ChF"/>
-                            <constraint firstItem="wwI-uk-35m" firstAttribute="centerX" secondItem="jiz-3B-KrQ" secondAttribute="centerX" id="6xh-h4-mVP"/>
-                            <constraint firstItem="gl0-RF-0hl" firstAttribute="centerX" secondItem="wwI-uk-35m" secondAttribute="centerX" id="NUx-TX-0Xc"/>
-                            <constraint firstItem="gl0-RF-0hl" firstAttribute="centerX" secondItem="DlD-jp-RED" secondAttribute="centerX" id="ihE-f3-PLk"/>
-                            <constraint firstItem="jiz-3B-KrQ" firstAttribute="centerY" secondItem="DlD-jp-RED" secondAttribute="centerY" id="qi1-xo-klz"/>
-                            <constraint firstItem="jiz-3B-KrQ" firstAttribute="top" secondItem="wwI-uk-35m" secondAttribute="bottom" constant="8" symbolic="YES" id="vfe-YC-Qx8"/>
+                            <constraint firstItem="1YY-Ec-rZO" firstAttribute="top" secondItem="g63-iT-85p" secondAttribute="bottom" constant="23" id="215-Vd-Um2"/>
+                            <constraint firstItem="wwI-uk-35m" firstAttribute="centerX" secondItem="g63-iT-85p" secondAttribute="centerX" id="5hM-Pe-Dme"/>
+                            <constraint firstItem="g63-iT-85p" firstAttribute="centerX" secondItem="1YY-Ec-rZO" secondAttribute="centerX" id="OXW-lN-4uI"/>
+                            <constraint firstItem="gl0-RF-0hl" firstAttribute="centerX" secondItem="DlD-jp-RED" secondAttribute="centerX" id="Rv5-dM-fvl"/>
+                            <constraint firstItem="wwI-uk-35m" firstAttribute="centerY" secondItem="DlD-jp-RED" secondAttribute="centerY" id="diU-xo-jBT"/>
+                            <constraint firstItem="gl0-RF-0hl" firstAttribute="centerX" secondItem="wwI-uk-35m" secondAttribute="centerX" id="exn-Ub-CBo"/>
+                            <constraint firstItem="g63-iT-85p" firstAttribute="top" secondItem="wwI-uk-35m" secondAttribute="bottom" constant="22" id="lgv-Ye-PaQ"/>
+                            <constraint firstItem="gl0-RF-0hl" firstAttribute="top" secondItem="awX-0R-Ogf" secondAttribute="bottom" constant="14" id="sa4-Pw-dOA"/>
                         </constraints>
                     </view>
                     <connections>
