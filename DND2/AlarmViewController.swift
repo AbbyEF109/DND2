@@ -47,6 +47,7 @@ class AlarmViewController: UIViewController {
     }
     
     @IBAction func openSettingsButtonPressed(sender: UIButton) {
+        //Mixpanel goes here
         //        let URL: NSURL = NSURL(string: UIApplicationOpenSettingsURLString)!
         let URL: NSURL = NSURL(string: "prefs:root=General")!
         UIApplication.sharedApplication().openURL(URL)
@@ -88,7 +89,11 @@ class AlarmViewController: UIViewController {
         
     }
     
-    @IBAction func datePickerSelected(sender: UIDatePicker) { //Not needed?
+    @IBAction func datePickerSelected(sender: UIDatePicker) {
+        //Mixpanel goes here
+        
+        
+        //Not needed?
         //Code to save alarm
         //reference to NSUserDefaults (instance of the class)
         //WIP
@@ -144,6 +149,7 @@ class AlarmViewController: UIViewController {
     }
     
     func setAlarmTapNoise(){
+        //Mixpanel goes here
         let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
         let url = NSURL(fileURLWithPath: path)
         do {
@@ -254,6 +260,7 @@ class AlarmViewController: UIViewController {
     //Set the alarm based on the data given by user via date picker
     
     func scheduleNotificationForDate(setDate: NSDate) {
+        //Mixpanel goes here
         let defaults = NSUserDefaults.standardUserDefaults()
         let pickedDate = datePicker.date
         defaults.setObject(pickedDate, forKey: "savedPickedDate")
@@ -273,7 +280,7 @@ class AlarmViewController: UIViewController {
         notification.timeZone = NSTimeZone.defaultTimeZone()
         notification.repeatInterval = NSCalendarUnit(rawValue: 0)
         notification.soundName = "bell.mp3" //works but is stopgap
-        notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode! You will automatically be sent to your settings."
+        notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode!"
         app.scheduleLocalNotification(notification)
         print("Notification set!")
     }
@@ -306,6 +313,7 @@ class AlarmViewController: UIViewController {
     
     
     @IBAction func stopAlarm(sender: AnyObject) {
+        //Mixpanel goes here
         self.soundApp.stop()
         
     }

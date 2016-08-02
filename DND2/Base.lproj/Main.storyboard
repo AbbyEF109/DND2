@@ -41,8 +41,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g63-iT-85p">
-                                <rect key="frame" x="257" y="337" width="87" height="30"/>
-                                <state key="normal" title="Edit Settings"/>
+                                <rect key="frame" x="250" y="337" width="101" height="30"/>
+                                <state key="normal" title="Go To Settings"/>
                                 <connections>
                                     <action selector="openSettingsButtonPressed:" destination="CJu-lb-6If" eventType="touchUpInside" id="Dgq-a4-AkY"/>
                                 </connections>
