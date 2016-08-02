@@ -11,6 +11,7 @@ import Foundation
 import UIKit
 import AudioToolbox
 import AVFoundation
+import Mixpanel
 
 //import RealmSwift
 
@@ -23,6 +24,7 @@ class AlarmViewController: UIViewController {
     
     var soundApp = AVAudioPlayer()
     let notification = UILocalNotification()
+    let mixpanel: Mixpanel = Mixpanel.sharedInstance()
     
     
     
@@ -33,6 +35,7 @@ class AlarmViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.datePicker.datePickerMode = .DateAndTime
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.fireAlarm), name: "AlarmNotification", object: nil)
+        
         /*let alertController = UIAlertController(title: "Welcome!", message:"Set a time and hit the Set Alarm button..", preferredStyle: UIAlertControllerStyle.Alert)
          let cancel = UIAlertAction(title: "Got it", style: UIAlertActionStyle.Cancel, handler: nil)
          alertController.addAction(cancel)
@@ -48,6 +51,7 @@ class AlarmViewController: UIViewController {
     
     @IBAction func openSettingsButtonPressed(sender: UIButton) {
         //Mixpanel goes here
+        mixpanel.track("Button pushed", properties: ["Button" : "Settings Button"])
         //        let URL: NSURL = NSURL(string: UIApplicationOpenSettingsURLString)!
         let URL: NSURL = NSURL(string: "prefs:root=General")!
         UIApplication.sharedApplication().openURL(URL)
@@ -86,11 +90,14 @@ class AlarmViewController: UIViewController {
         self.scheduleNotificationForDate(datePicker.date)
         self.setAlarmTapNoise()
         //self.alarmForDate(datePicker.date)
+        mixpanel.track("Button pushed", properties: ["Button" : "Set Alarm"])
         
     }
     
     @IBAction func datePickerSelected(sender: UIDatePicker) {
         //Mixpanel goes here
+        mixpanel.track("Button pushed", properties: ["Button" : "Date Picker"])
+        
         
         
         //Not needed?
@@ -149,7 +156,6 @@ class AlarmViewController: UIViewController {
     }
     
     func setAlarmTapNoise(){
-        //Mixpanel goes here
         let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
         let url = NSURL(fileURLWithPath: path)
         do {
@@ -260,7 +266,6 @@ class AlarmViewController: UIViewController {
     //Set the alarm based on the data given by user via date picker
     
     func scheduleNotificationForDate(setDate: NSDate) {
-        //Mixpanel goes here
         let defaults = NSUserDefaults.standardUserDefaults()
         let pickedDate = datePicker.date
         defaults.setObject(pickedDate, forKey: "savedPickedDate")
@@ -314,6 +319,7 @@ class AlarmViewController: UIViewController {
     
     @IBAction func stopAlarm(sender: AnyObject) {
         //Mixpanel goes here
+        mixpanel.track("Button pushed", properties: ["Button" : "Stop Alarm"])
         self.soundApp.stop()
         
     }

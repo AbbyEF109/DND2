@@ -1,0 +1,6 @@
+framework module Pods_DND2 {
+  umbrella header "Pods-DND2-umbrella.h"
+
+  export *
+  module * { export * }
+}
