@@ -100,7 +100,7 @@ class AlarmViewController: UIViewController {
         
         
         
-        //Not needed?
+        //Not needed? Not needed - delete when cleaning up code
         //Code to save alarm
         //reference to NSUserDefaults (instance of the class)
         //WIP
@@ -265,11 +265,16 @@ class AlarmViewController: UIViewController {
     
     //Set the alarm based on the data given by user via date picker
     
-    func scheduleNotificationForDate(setDate: NSDate) {
+    func scheduleNotificationForDate(fixedDate: NSDate) {
+        //let time = floor(date.timeIntervalSinceReferenceDate/60.0) * 60.0
+        //        let dateFlored = NSDate(timeIntervalSinceReferenceDate: time)
+        //floor(date.timeIntervalSinceReferenceDate/60.0) * 60.0
         let defaults = NSUserDefaults.standardUserDefaults()
         let pickedDate = datePicker.date
-        defaults.setObject(pickedDate, forKey: "savedPickedDate")
-        let sPD = defaults.objectForKey("savedPickedDate") as? NSDate ?? NSDate()
+        let floorDate = floor(pickedDate.timeIntervalSinceReferenceDate/60.0) * 60.0
+        let fixedDate = NSDate(timeIntervalSinceReferenceDate: floorDate)
+        defaults.setObject(fixedDate, forKey: "savedFixedDate")
+        let sFD = defaults.objectForKey("savedFixedDate") as? NSDate ?? NSDate()
         //let now = NSDate()
         let app: UIApplication = UIApplication.sharedApplication()
         let oldNotifications: [UILocalNotification] = app.scheduledLocalNotifications!
@@ -277,14 +282,14 @@ class AlarmViewController: UIViewController {
         if oldNotifications.count > 0 { app.cancelAllLocalNotifications() }
         // Create a new notification.
         //let notification = UILocalNotification()
-        print("This is the sPD")
-        print(sPD)
-        notification.fireDate = NSDate(timeInterval: 1, sinceDate: setDate)
-        print("Tis is the fireDate")
+        print("This is the sFD")
+        print(sFD)
+        notification.fireDate = NSDate(timeInterval: 0, sinceDate: sFD)
+        print("This is the fireDate")
         print(notification.fireDate)
         notification.timeZone = NSTimeZone.defaultTimeZone()
         notification.repeatInterval = NSCalendarUnit(rawValue: 0)
-        notification.soundName = "bell.mp3" //works but is stopgap
+        notification.soundName = "bell.mp3"
         notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode!"
         app.scheduleLocalNotification(notification)
         print("Notification set!")
