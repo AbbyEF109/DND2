@@ -18,10 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Asks for permission for notifications, activates notification type
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
 //        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound, categories: nil))
+        //Sets up basis for analytic tracking
         Mixpanel.sharedInstanceWithToken("ee66b60b45429edbdd4dc59c78f7764e")
         let mixpanel: Mixpanel = Mixpanel.sharedInstance()
         mixpanel.track("App launched")
-        
+        //Sets up the basis for notifications
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge , .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
@@ -31,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
      func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-
+        //sets notifications that goes off in the foreground
         print("received notification")
         let alarmInForeground = UIAlertController(title: "Time is up! Don't forget to turn off Airplane Mode!", message: nil, preferredStyle: .Alert)
         let cancel = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil)
