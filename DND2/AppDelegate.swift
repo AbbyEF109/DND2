@@ -17,9 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //Asks for permission for notifications, activates notification type
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-//        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound, categories: nil))
-        
-
         //Sets up basis for analytic tracking
         Mixpanel.sharedInstanceWithToken("ee66b60b45429edbdd4dc59c78f7764e")
         let mixpanel: Mixpanel = Mixpanel.sharedInstance()
@@ -27,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Sets up the basis for notifications
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge , .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-        
-        //(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert |UIUserNotificationType.Badge, categories: nil))
         return true
         
         
@@ -43,13 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSNotificationCenter.defaultCenter().postNotificationName("AlarmNotification", object: nil)
         
     }
-    
-    /*func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        print("REcieved RMOTE")
-    }*/
-    
-    
-    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -122,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return managedObjectContext
     }()
 
-    // MARK: - Core Data Saving support
+    // Core Data Saving support
 
     func saveContext () {
         if managedObjectContext.hasChanges {
