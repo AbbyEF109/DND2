@@ -25,9 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge , .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         return true
-        
-        
     }
+    
      func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         //sets notifications that goes off in the foreground
         print("received notification")
@@ -125,6 +124,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
 }
-
