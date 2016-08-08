@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DND2/AlarmViewController.swift"
-            timestampString = "492117109.46899"
+            timestampString = "492382394.038892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "openSettingsButtonPressed(_:)"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "stopAlarm(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

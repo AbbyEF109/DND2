@@ -12,13 +12,13 @@
 		28661B6F1D381A0A001D4661 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28661B6E1D381A0A001D4661 /* AlarmViewController.swift */; };
 		28661B721D381A0A001D4661 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28661B701D381A0A001D4661 /* Main.storyboard */; };
 		28661B751D381A0A001D4661 /* DND2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28661B731D381A0A001D4661 /* DND2.xcdatamodeld */; };
-		28661B771D381A0A001D4661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28661B761D381A0A001D4661 /* Assets.xcassets */; };
 		28661B7A1D381A0A001D4661 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28661B781D381A0A001D4661 /* LaunchScreen.storyboard */; };
 		28661B851D381A0A001D4661 /* DND2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28661B841D381A0A001D4661 /* DND2Tests.swift */; };
 		28661B901D381A0A001D4661 /* DND2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28661B8F1D381A0A001D4661 /* DND2UITests.swift */; };
 		28661B9E1D381A27001D4661 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28661B9D1D381A27001D4661 /* Model.swift */; };
 		28661B9F1D381A27001D4661 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28661B9D1D381A27001D4661 /* Model.swift */; };
 		28661BA01D381A27001D4661 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28661B9D1D381A27001D4661 /* Model.swift */; };
+		288E9CD41D58F356001DECCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 288E9CD31D58F355001DECCC /* Assets.xcassets */; };
 		28B03FC91D414FD200F92902 /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 28B03FC81D414FD200F92902 /* bell.mp3 */; };
 		931BD422AE8A60B6FCB53674 /* Pods_DND2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC17FF2CF2FDE0D8DF6D8DF1 /* Pods_DND2.framework */; };
 		9920A0306958B272EAC2E381 /* Pods_DND2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8483733C5308369BB444F0 /* Pods_DND2Tests.framework */; };
@@ -51,7 +51,6 @@
 		28661B6E1D381A0A001D4661 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		28661B711D381A0A001D4661 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28661B741D381A0A001D4661 /* DND2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DND2.xcdatamodel; sourceTree = "<group>"; };
-		28661B761D381A0A001D4661 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28661B791D381A0A001D4661 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28661B7B1D381A0A001D4661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28661B801D381A0A001D4661 /* DND2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DND2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +60,7 @@
 		28661B8F1D381A0A001D4661 /* DND2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DND2UITests.swift; sourceTree = "<group>"; };
 		28661B911D381A0A001D4661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28661B9D1D381A27001D4661 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		288E9CD31D58F355001DECCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28B03FC81D414FD200F92902 /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		2958B805CF042A29A4C85FBA /* Pods-DND2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DND2UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DND2UITests/Pods-DND2UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4780F0616432F4BF4E3EB5AD /* Pods-DND2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DND2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DND2/Pods-DND2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,8 +142,8 @@
 				28661B6C1D381A0A001D4661 /* AppDelegate.swift */,
 				28661B6E1D381A0A001D4661 /* AlarmViewController.swift */,
 				28661B701D381A0A001D4661 /* Main.storyboard */,
-				28661B761D381A0A001D4661 /* Assets.xcassets */,
 				28661B781D381A0A001D4661 /* LaunchScreen.storyboard */,
+				288E9CD31D58F355001DECCC /* Assets.xcassets */,
 				28661B7B1D381A0A001D4661 /* Info.plist */,
 				28661B731D381A0A001D4661 /* DND2.xcdatamodeld */,
 				28661B9D1D381A27001D4661 /* Model.swift */,
@@ -301,8 +301,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				28661B7A1D381A0A001D4661 /* LaunchScreen.storyboard in Resources */,
-				28661B771D381A0A001D4661 /* Assets.xcassets in Resources */,
 				28661B721D381A0A001D4661 /* Main.storyboard in Resources */,
+				288E9CD41D58F356001DECCC /* Assets.xcassets in Resources */,
 				28B03FC91D414FD200F92902 /* bell.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

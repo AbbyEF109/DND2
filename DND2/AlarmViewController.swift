@@ -15,6 +15,7 @@ import Mixpanel //Analytics
 
 class AlarmViewController: UIViewController {
     
+
     @IBOutlet var setAlarm: UIButton!
     @IBOutlet var datePicker: UIDatePicker!
     
@@ -26,6 +27,8 @@ class AlarmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        datePicker.sendAction("setHighlightsToday:", to: nil, forEvent: nil)
+        datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
         self.datePicker.datePickerMode = .DateAndTime
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.fireAlarm), name: "AlarmNotification", object: nil)
     }
@@ -35,16 +38,10 @@ class AlarmViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func openSettingsButtonPressed(sender: UIButton) {
-        mixpanel.track("Button pushed", properties: ["Button" : "Settings Button"])
-        let URL: NSURL = NSURL(string: "prefs:root=General")!
-        UIApplication.sharedApplication().openURL(URL)
-    }
-    
-    @IBAction func alarmButtonTapped(sender: UIButton) {
+ 
+    @IBAction func alarmButtonTapped(sender: AnyObject) {
         self.scheduleNotificationForDate(datePicker.date)
         self.setAlarmTapNoise()
-        //self.alarmForDate(datePicker.date)
         mixpanel.track("Button pushed", properties: ["Button" : "Set Alarm"])
         
     }
@@ -53,17 +50,15 @@ class AlarmViewController: UIViewController {
         mixpanel.track("Button pushed", properties: ["Button" : "Date Picker"])
     }
     
+    
     func setAlarmTapNoise(){
         let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
         let url = NSURL(fileURLWithPath: path)
         do {
             self.soundApp = try AVAudioPlayer(contentsOfURL: url)
             self.soundApp.play()
-            //let testSoundApp = self.soundApp.play()
-            //print(testSoundApp)
-            //print("sounds play now yay")
             //Alert that gives the user directions to use the app optimally
-            let alertController = UIAlertController(title: "Alarm set!", message:"Tap the Edit Settings button. Set your phone on Airplane Mode, and the app will go off until you tap the Stop Alarm button to make sure you get up. Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: "Alarm set!", message:"Tap the Edit Settings button. Set your phone on Airplane Mode, and the app will go off every minute until you tap the Stop Alarm button. Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
             let cancel = UIAlertAction(title: "Got it!", style: UIAlertActionStyle.Cancel, handler: nil)
             alertController.addAction(cancel)
             self.presentViewController(alertController, animated: true, completion: nil)
@@ -87,41 +82,45 @@ class AlarmViewController: UIViewController {
         let sFD = defaults.objectForKey("savedFixedDate") as? NSDate ?? NSDate()
         // Create a new notification.
         let notification = UILocalNotification()
-        //print("This is the sFD")
-        //print(sFD)
         notification.fireDate = NSDate(timeInterval: 0, sinceDate: sFD)
-        //print("This is the fireDate")
-        //print(notification.fireDate)
         notification.timeZone = NSTimeZone.defaultTimeZone()
         notification.repeatInterval = NSCalendarUnit(rawValue: 0)
         notification.soundName = "bell.mp3"
-        notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode and to hit Stop Alarm!"
+        notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode and to tap Stop Alarm!"
         app.scheduleLocalNotification(notification)
         print("First notification set!")
+        print(notification)
         //To set up repeating notifications
-        var myDouble: Double = 13 //bell.mp3 is 13 seconds long
+            //To set up repeating notifications
+        var myDouble: Double = 13 //represents a minute that will be added to the sFD
         var notificationCounter: Int = 1
-        while notificationCounter < 65 /*64 is max allowed */ {
-                let datePlusOneMinute: NSDate = sFD.dateByAddingTimeInterval(myDouble)
-                //print("This is the sFD")
-                //print(sFD)
-                notification.fireDate = NSDate(timeInterval: 0, sinceDate: datePlusOneMinute)
-                //print("This is the fireDate")
-                //print(notification.fireDate)
-                notification.timeZone = NSTimeZone.defaultTimeZone()
-                notification.repeatInterval = NSCalendarUnit(rawValue: 0)
-                notification.soundName = "bell.mp3"
-                notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode!"
-                app.scheduleLocalNotification(notification)
-                print("Another notification set!")
-                notificationCounter += 1
-                //print("This is the notification counter")
-                //print(notificationCounter)
-                myDouble += 13 //Added to the time each repetition - alarm loops continuously
-                //print("This is myDouble")
-                //print(myDouble)
+        while notificationCounter < 10 {
+            let datePlusSomeSeconds: NSDate = sFD.dateByAddingTimeInterval(myDouble)
+            print("This is the sFD")
+            print(sFD)
+            notification.fireDate = NSDate(timeInterval: 0, sinceDate: datePlusSomeSeconds)
+            print("This is the fireDate")
+            print(notification.fireDate)
+            notification.timeZone = NSTimeZone.defaultTimeZone()
+            notification.repeatInterval = NSCalendarUnit(rawValue: 0)
+            notification.soundName = "bell.mp3"
+            notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode!"
+            app.scheduleLocalNotification(notification)
+            print("Another notification set!")
+            notificationCounter += 1
+            print("This is the notification counter")
+            print(notificationCounter)
+            myDouble += 13
+            print("This is myDouble")
+            print(myDouble)
+            print(notification)
             }
-        }
+    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) { //print all local notifications
+        
+        print(notificationSettings.types.rawValue)
+    }
     //Tied to UINotificationCenter
     func fireAlarm() {
         //print("fireAlarm")
@@ -136,9 +135,6 @@ class AlarmViewController: UIViewController {
             //Sound repeats infinitely until stopped
             self.soundApp.numberOfLoops = -1
             //print("sounds play now yay 2")
-            //sends the user to their settings
-            let URL: NSURL = NSURL(string: "prefs:root=General")!
-            UIApplication.sharedApplication().openURL(URL)
         }
         catch {
             print("There was an error accessing the sound.")
@@ -148,10 +144,14 @@ class AlarmViewController: UIViewController {
     
     @IBAction func stopAlarm(sender: AnyObject) {
         mixpanel.track("Button pushed", properties: ["Button" : "Stop Alarm"])
+
         let oldNotifications: [UILocalNotification] = app.scheduledLocalNotifications!
+        while oldNotifications.count > 0 {
+            self.soundApp.stop()
+        }
         //Clear out the old notification before scheduling a new one.
         if oldNotifications.count > 0 { app.cancelAllLocalNotifications()}
         //Stops alarm noise
-        self.soundApp.stop()
+        
     }
 }
