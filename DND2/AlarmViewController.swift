@@ -87,7 +87,7 @@ class AlarmViewController: UIViewController {
         }
         else {
             //Alert that gives the user directions to use the app optimally
-            let alertController = UIAlertController(title: "Alarm set!", message:"Tap the Edit Settings button. Set your phone on Airplane Mode, and the app will go off until you tap the Stop button. Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: "Alarm set!", message:"Set your phone on Airplane Mode, and the app will go off until you tap the Stop button. Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
             let cancel = UIAlertAction(title: "Got it!", style: UIAlertActionStyle.Cancel, handler: nil)
             alertController.addAction(cancel)
             self.presentViewController(alertController, animated: true, completion: nil)
