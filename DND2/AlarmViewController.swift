@@ -57,11 +57,6 @@ class AlarmViewController: UIViewController {
         do {
             self.soundApp = try AVAudioPlayer(contentsOfURL: url)
             self.soundApp.play()
-            //Alert that gives the user directions to use the app optimally
-            let alertController = UIAlertController(title: "Alarm set!", message:"Tap the Edit Settings button. Set your phone on Airplane Mode, and the app will go off until you tap the Stop button. Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
-            let cancel = UIAlertAction(title: "Got it!", style: UIAlertActionStyle.Cancel, handler: nil)
-            alertController.addAction(cancel)
-            self.presentViewController(alertController, animated: true, completion: nil)
         }
             
         catch {
@@ -73,6 +68,7 @@ class AlarmViewController: UIViewController {
     func scheduleNotificationForDate(fixedDate: NSDate) {
         //Where the alarm time will persist (NSUserDefaults)
         let defaults = NSUserDefaults.standardUserDefaults()
+        //let now = NSDate()
         let pickedDate = datePicker.date
         //To get rid of the pesky extra 14 second problem - floors it and sets seconds to 0
         let floorDate = floor(pickedDate.timeIntervalSinceReferenceDate/60.0) * 60.0
@@ -80,39 +76,53 @@ class AlarmViewController: UIViewController {
         //Persist the alarm time
         defaults.setObject(fixedDate, forKey: "savedFixedDate")
         let sFD = defaults.objectForKey("savedFixedDate") as? NSDate ?? NSDate()
-        // Create a new notification.
-        let notification = UILocalNotification()
-        notification.fireDate = NSDate(timeInterval: 0, sinceDate: sFD)
-        notification.timeZone = NSTimeZone.defaultTimeZone()
-        notification.repeatInterval = NSCalendarUnit(rawValue: 0)
-        notification.soundName = "bell.mp3"
-        notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode and to tap Stop!"
-        app.scheduleLocalNotification(notification)
-        print("First notification set!")
-        
-        //To set up repeating notifications
-        var myDouble: Double = 15 //represents a minute that will be added to the sFD
-        var notificationCounter: Int = 0
-        while notificationCounter < 45 {
-            let datePlusSomeSeconds: NSDate = sFD.dateByAddingTimeInterval(myDouble)
-            print("This is the sFD")
-            print(sFD)
-            notification.fireDate = NSDate(timeInterval: 0, sinceDate: datePlusSomeSeconds)
-            print("This is the fireDate")
-            print(notification.fireDate)
+        if sFD.timeIntervalSinceNow < 0 {
+            print("This date is not acceptable.")
+            let alertController = UIAlertController(title: "This is impossible.", message:"You cannot choose a date in the past.", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancel = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil)
+            alertController.addAction(cancel)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        else {
+            //Alert that gives the user directions to use the app optimally
+            let alertController = UIAlertController(title: "Alarm set!", message:"Tap the Edit Settings button. Set your phone on Airplane Mode, and the app will go off until you tap the Stop button. Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancel = UIAlertAction(title: "Got it!", style: UIAlertActionStyle.Cancel, handler: nil)
+            alertController.addAction(cancel)
+            self.presentViewController(alertController, animated: true, completion: nil)
+            // Create a new notification.
+            let notification = UILocalNotification()
+            notification.fireDate = NSDate(timeInterval: 0, sinceDate: sFD)
             notification.timeZone = NSTimeZone.defaultTimeZone()
             notification.repeatInterval = NSCalendarUnit(rawValue: 0)
             notification.soundName = "bell.mp3"
-            notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode and press Stop!"
+            notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode and to tap Stop!"
             app.scheduleLocalNotification(notification)
-            print("Another notification set!")
-            notificationCounter += 1
-            print("This is the notification counter")
-            print(notificationCounter)
-            myDouble += 15
-            print("This is myDouble")
-            print(myDouble)
-            //print(notification)
+            print("First notification set!")
+            
+            //To set up repeating notifications
+            var myDouble: Double = 15 //represents a minute that will be added to the sFD
+            var notificationCounter: Int = 0
+            while notificationCounter < 45 {
+                let datePlusSomeSeconds: NSDate = sFD.dateByAddingTimeInterval(myDouble)
+                print("This is the sFD")
+                print(sFD)
+                notification.fireDate = NSDate(timeInterval: 0, sinceDate: datePlusSomeSeconds)
+                print("This is the fireDate")
+                print(notification.fireDate)
+                notification.timeZone = NSTimeZone.defaultTimeZone()
+                notification.repeatInterval = NSCalendarUnit(rawValue: 0)
+                notification.soundName = "bell.mp3"
+                notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode and press Stop!"
+                app.scheduleLocalNotification(notification)
+                print("Another notification set!")
+                notificationCounter += 1
+                print("This is the notification counter")
+                print(notificationCounter)
+                myDouble += 15
+                print("This is myDouble")
+                print(myDouble)
+                //print(notification)
+                }
             }
     }
 
