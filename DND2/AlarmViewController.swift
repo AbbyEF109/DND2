@@ -80,7 +80,7 @@ class AlarmViewController: UIViewController {
         let sFD = defaults.objectForKey("savedFixedDate") as? NSDate ?? NSDate()
         if sFD.timeIntervalSinceNow < 0 {
             print("This date is not acceptable.")
-            let alertController = UIAlertController(title: "This is impossible.", message:"You cannot choose a date in the past.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: "You are not a time traveller.", message:"You cannot choose a date in the past.", preferredStyle: UIAlertControllerStyle.Alert)
             let cancel = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil)
             alertController.addAction(cancel)
             self.presentViewController(alertController, animated: true, completion: nil)
