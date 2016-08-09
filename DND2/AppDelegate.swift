@@ -9,11 +9,13 @@ import Foundation
 import UIKit
 import CoreData
 import Mixpanel
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var soundApp = AVAudioPlayer()
     
     //Asks for permission for notifications, activates notification type
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
@@ -30,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         //sets notifications that goes off in the foreground
         print("received notification")
-        let alarmInForeground = UIAlertController(title: "Time is up! Don't forget to turn off Airplane Mode! and to tap Stop Alarm!", message: nil, preferredStyle: .Alert)
+        let alarmInForeground = UIAlertController(title: "Time is up! Don't forget to turn off Airplane Mode! and to press Stop!", message: nil, preferredStyle: .Alert)
         let cancel = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil)
         alarmInForeground.addAction(cancel)
         window?.rootViewController!.presentViewController(alarmInForeground, animated: true, completion: nil)

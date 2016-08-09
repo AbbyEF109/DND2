@@ -58,7 +58,7 @@ class AlarmViewController: UIViewController {
             self.soundApp = try AVAudioPlayer(contentsOfURL: url)
             self.soundApp.play()
             //Alert that gives the user directions to use the app optimally
-            let alertController = UIAlertController(title: "Alarm set!", message:"Tap the Edit Settings button. Set your phone on Airplane Mode, and the app will go off every minute until you tap the Stop Alarm button. Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: "Alarm set!", message:"Tap the Edit Settings button. Set your phone on Airplane Mode, and the app will go off until you tap the Stop button. Rest well!", preferredStyle: UIAlertControllerStyle.Alert)
             let cancel = UIAlertAction(title: "Got it!", style: UIAlertActionStyle.Cancel, handler: nil)
             alertController.addAction(cancel)
             self.presentViewController(alertController, animated: true, completion: nil)
@@ -86,15 +86,14 @@ class AlarmViewController: UIViewController {
         notification.timeZone = NSTimeZone.defaultTimeZone()
         notification.repeatInterval = NSCalendarUnit(rawValue: 0)
         notification.soundName = "bell.mp3"
-        notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode and to tap Stop Alarm!"
+        notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode and to tap Stop!"
         app.scheduleLocalNotification(notification)
         print("First notification set!")
-        print(notification)
+        
         //To set up repeating notifications
-            //To set up repeating notifications
-        var myDouble: Double = 13 //represents a minute that will be added to the sFD
-        var notificationCounter: Int = 1
-        while notificationCounter < 10 {
+        var myDouble: Double = 15 //represents a minute that will be added to the sFD
+        var notificationCounter: Int = 0
+        while notificationCounter < 45 {
             let datePlusSomeSeconds: NSDate = sFD.dateByAddingTimeInterval(myDouble)
             print("This is the sFD")
             print(sFD)
@@ -104,23 +103,19 @@ class AlarmViewController: UIViewController {
             notification.timeZone = NSTimeZone.defaultTimeZone()
             notification.repeatInterval = NSCalendarUnit(rawValue: 0)
             notification.soundName = "bell.mp3"
-            notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode!"
+            notification.alertBody = "Time is up! Don't forget to turn off Airplane Mode and press Stop!"
             app.scheduleLocalNotification(notification)
             print("Another notification set!")
             notificationCounter += 1
             print("This is the notification counter")
             print(notificationCounter)
-            myDouble += 13
+            myDouble += 15
             print("This is myDouble")
             print(myDouble)
-            print(notification)
+            //print(notification)
             }
     }
-    
-    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) { //print all local notifications
-        
-        print(notificationSettings.types.rawValue)
-    }
+
     //Tied to UINotificationCenter
     func fireAlarm() {
         //print("fireAlarm")
@@ -130,8 +125,6 @@ class AlarmViewController: UIViewController {
         do {
             self.soundApp = try AVAudioPlayer(contentsOfURL: url)
             self.soundApp.play()
-            //let testSoundApp = self.soundApp.play()
-            //print(testSoundApp)
             //Sound repeats infinitely until stopped
             self.soundApp.numberOfLoops = -1
             //print("sounds play now yay 2")
@@ -146,12 +139,13 @@ class AlarmViewController: UIViewController {
         mixpanel.track("Button pushed", properties: ["Button" : "Stop Alarm"])
 
         let oldNotifications: [UILocalNotification] = app.scheduledLocalNotifications!
-        while oldNotifications.count > 0 {
-            self.soundApp.stop()
-        }
-        //Clear out the old notification before scheduling a new one.
-        if oldNotifications.count > 0 { app.cancelAllLocalNotifications()}
         //Stops alarm noise
-        
+        //Clear out the old notification before scheduling a new one.
+        if oldNotifications.count > 0 {
+            app.cancelAllLocalNotifications()
+            print("Notifications cleared")
+            self.soundApp.stop()
+            print("Alarm stopped")
+        }
     }
 }
