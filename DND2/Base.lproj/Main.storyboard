@@ -65,6 +65,7 @@
                     <connections>
                         <outlet property="datePicker" destination="gl0-RF-0hl" id="1Gc-5Y-hVZ"/>
                         <outlet property="setAlarm" destination="TQc-nk-4zg" id="y1A-nL-Ra5"/>
+                        <outlet property="stopButton" destination="1YY-Ec-rZO" id="CjR-uL-MN7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faF-4p-0Bx" userLabel="First Responder" sceneMemberID="firstResponder"/>

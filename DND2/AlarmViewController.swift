@@ -18,6 +18,7 @@ class AlarmViewController: UIViewController {
 
     @IBOutlet var setAlarm: UIButton!
     @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var stopButton: UIButton!
     
     var soundApp = AVAudioPlayer()
     let notification = UILocalNotification()
@@ -26,6 +27,7 @@ class AlarmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        stopButton.enabled = false
         // Do any additional setup after loading the view, typically from a nib.
         datePicker.sendAction("setHighlightsToday:", to: nil, forEvent: nil)
         datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
@@ -123,6 +125,7 @@ class AlarmViewController: UIViewController {
                 print(myDouble)
                 //print(notification)
                 }
+            stopButton.enabled = true
             }
     }
 
@@ -149,6 +152,10 @@ class AlarmViewController: UIViewController {
         mixpanel.track("Button pushed", properties: ["Button" : "Stop Alarm"])
 
         let oldNotifications: [UILocalNotification] = app.scheduledLocalNotifications!
+        let alertController = UIAlertController(title: "Alarm stopped!", message:"All current notifications have been deleted.", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancel = UIAlertAction(title: "Cool!", style: UIAlertActionStyle.Cancel, handler: nil)
+        alertController.addAction(cancel)
+        self.presentViewController(alertController, animated: true, completion: nil)
         //Stops alarm noise
         //Clear out the old notification before scheduling a new one.
         if oldNotifications.count > 0 {
@@ -156,6 +163,7 @@ class AlarmViewController: UIViewController {
             print("Notifications cleared")
             self.soundApp.stop()
             print("Alarm stopped")
+            stopButton.enabled = false
         }
     }
 }
