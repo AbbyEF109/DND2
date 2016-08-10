@@ -150,8 +150,9 @@ class AlarmViewController: UIViewController {
     
     @IBAction func stopAlarm(sender: AnyObject) {
         mixpanel.track("Button pushed", properties: ["Button" : "Stop Alarm"])
-
+        //Holds all current notifications
         let oldNotifications: [UILocalNotification] = app.scheduledLocalNotifications!
+        //Alert for the user - alarm noice stopped, notifications cleared
         let alertController = UIAlertController(title: "Alarm stopped!", message:"All current notifications have been deleted.", preferredStyle: UIAlertControllerStyle.Alert)
         let cancel = UIAlertAction(title: "Cool!", style: UIAlertActionStyle.Cancel, handler: nil)
         alertController.addAction(cancel)
@@ -164,6 +165,17 @@ class AlarmViewController: UIViewController {
             self.soundApp.stop()
             print("Alarm stopped")
             stopButton.enabled = false
+        }
+        //Noise to match Set Alarm
+        let path = "/System/Library/Audio/UISounds/dtmf-3.caf"
+        let url = NSURL(fileURLWithPath: path)
+        do {
+            self.soundApp = try AVAudioPlayer(contentsOfURL: url)
+            self.soundApp.play()
+        }
+            
+        catch {
+            print("There was an error accessing the sound.")
         }
     }
 }
