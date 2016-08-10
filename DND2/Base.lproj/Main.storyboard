@@ -87,6 +87,9 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="About" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pcC-xr-d7W">
                                 <rect key="frame" x="252" y="49" width="97" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="oMm-0Q-1y0"/>
                                 </constraints>
@@ -97,6 +100,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Benjamin Bucca inspired.                                                                         " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6Ty-bj-WC3">
                                 <rect key="frame" x="209" y="281" width="173" height="38"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="173" id="BoL-5C-Uyg"/>
                                 </constraints>
@@ -107,6 +113,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Dedicated to my mom, Denise Erker.   " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZZs-eJ-69e">
                                 <rect key="frame" x="171" y="313" width="248" height="33"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="QWq-Zc-bud"/>
                                     <constraint firstAttribute="width" constant="248" id="oYy-ZF-02y"/>
@@ -118,6 +127,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Created by Abigail Erker-Ferreira, 2016." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hvv-nQ-X11">
                                 <rect key="frame" x="161" y="354" width="268" height="42"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="268" id="KBp-vz-SsV"/>
                                 </constraints>
@@ -128,6 +140,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Silence icon by Ryan Beck from The Noun Project.            " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VMp-5F-5il">
                                 <rect key="frame" x="128" y="243" width="344" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8G3-X4-yqP"/>
                                     <constraint firstAttribute="width" constant="344" id="pN0-mY-gCd"/>
@@ -139,6 +154,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fod-GQ-9oC">
                                 <rect key="frame" x="180" y="87" width="240" height="156"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="UCs-yL-5dF"/>
                                 </constraints>
