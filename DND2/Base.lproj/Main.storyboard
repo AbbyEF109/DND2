@@ -84,25 +84,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="About" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pcC-xr-d7W">
-                                <rect key="frame" x="252" y="49" width="97" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
-                                    <bool key="isElement" value="NO"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="oMm-0Q-1y0"/>
-                                </constraints>
-                                <color key="textColor" red="0.9877604166666667" green="0.9877604166666667" blue="0.9877604166666667" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="45"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Benjamin Bucca inspired.                                                                         " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6Ty-bj-WC3">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Benjamin Bucca inspired.                                                                         " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ty-bj-WC3">
                                 <rect key="frame" x="209" y="281" width="173" height="38"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
                                 <constraints>
@@ -112,11 +98,11 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Dedicated to my mom, Denise Erker.   " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZZs-eJ-69e">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Dedicated to my mom, Denise Erker.   " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZs-eJ-69e">
                                 <rect key="frame" x="171" y="313" width="248" height="33"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
                                 <constraints>
@@ -127,11 +113,11 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Created by Abigail Erker-Ferreira, 2016." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hvv-nQ-X11">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Created by Abigail Erker-Ferreira, 2016." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvv-nQ-X11">
                                 <rect key="frame" x="161" y="354" width="268" height="42"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
                                 <constraints>
@@ -141,11 +127,11 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Silence icon by Ryan Beck from The Noun Project.            " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VMp-5F-5il">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Silence icon by Ryan Beck from The Noun Project.            " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMp-5F-5il">
                                 <rect key="frame" x="128" y="243" width="344" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
                                 <constraints>
@@ -156,11 +142,11 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fod-GQ-9oC">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fod-GQ-9oC">
                                 <rect key="frame" x="180" y="87" width="240" height="156"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
                                 <constraints>
@@ -183,6 +169,16 @@
                                     <segue destination="CJu-lb-6If" kind="show" id="oLe-nk-Jdi"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEk-eQ-JT9">
+                                <rect key="frame" x="252" y="39" width="96" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="cP8-Hu-0Az"/>
+                                    <constraint firstAttribute="height" constant="30" id="jXC-mA-ciB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="30"/>
+                                <color key="textColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.054901960784313725" green="0.22352941176470589" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -194,14 +190,14 @@
                             <constraint firstItem="ZZs-eJ-69e" firstAttribute="centerX" secondItem="UIu-ll-mhC" secondAttribute="centerX" constant="-5" id="SYk-Kk-vYB"/>
                             <constraint firstItem="hvv-nQ-X11" firstAttribute="top" secondItem="ZZs-eJ-69e" secondAttribute="bottom" constant="8" id="VJD-cy-VcA"/>
                             <constraint firstItem="VMp-5F-5il" firstAttribute="top" secondItem="fod-GQ-9oC" secondAttribute="bottom" id="VlL-7C-Jvp"/>
-                            <constraint firstItem="fod-GQ-9oC" firstAttribute="top" secondItem="pcC-xr-d7W" secondAttribute="bottom" constant="8" id="VrO-ly-2St"/>
+                            <constraint firstItem="fod-GQ-9oC" firstAttribute="top" secondItem="tEk-eQ-JT9" secondAttribute="bottom" constant="18" id="WMO-E6-hZ4"/>
                             <constraint firstItem="fod-GQ-9oC" firstAttribute="centerX" secondItem="VMp-5F-5il" secondAttribute="centerX" id="WxO-4c-MyF"/>
                             <constraint firstItem="2x0-Xz-Pjp" firstAttribute="top" secondItem="Pii-Eq-ZUC" secondAttribute="bottom" constant="146" id="feU-pP-9Et"/>
                             <constraint firstItem="6Ty-bj-WC3" firstAttribute="top" secondItem="VMp-5F-5il" secondAttribute="bottom" constant="8" symbolic="YES" id="gq5-hG-fWl"/>
-                            <constraint firstItem="pcC-xr-d7W" firstAttribute="centerX" secondItem="fod-GQ-9oC" secondAttribute="centerX" id="jkb-d9-bWP"/>
-                            <constraint firstItem="pcC-xr-d7W" firstAttribute="top" secondItem="THH-nU-Xmm" secondAttribute="bottom" constant="29" id="rgc-ko-1a4"/>
+                            <constraint firstItem="tEk-eQ-JT9" firstAttribute="top" secondItem="THH-nU-Xmm" secondAttribute="bottom" constant="19" id="hci-W3-9VO"/>
                             <constraint firstItem="hvv-nQ-X11" firstAttribute="top" secondItem="6Ty-bj-WC3" secondAttribute="bottom" constant="35" id="sal-3m-H0z"/>
                             <constraint firstItem="Pii-Eq-ZUC" firstAttribute="top" secondItem="hvv-nQ-X11" secondAttribute="bottom" constant="28" id="sg8-L1-TWV"/>
+                            <constraint firstItem="tEk-eQ-JT9" firstAttribute="centerX" secondItem="fod-GQ-9oC" secondAttribute="centerX" id="wV9-Nr-Ed1"/>
                             <constraint firstItem="6Ty-bj-WC3" firstAttribute="centerY" secondItem="UIu-ll-mhC" secondAttribute="centerY" id="yMB-HX-tyC"/>
                         </constraints>
                     </view>
